@@ -1,0 +1,207 @@
+[
+    {
+        "DisplayName": "Source des fichiers du jeu",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Installation:download:1",
+        "Description": "Dominions 6 est payant (Steam, app 2511500). SteamCMD : à chaque Update, AMP télécharge le jeu avec un compte Steam qui le possède (AMP demande l'identifiant, le mot de passe et la validation Steam Guard la première fois) ; le serveur reste à la même version que les joueurs. Manuel : tu copies toi-même le dossier steamapps/common/Dominions6 de ton PC dans le dossier jeu/ de l'instance (il contient aussi la version Linux) et tu recommences à chaque patch du jeu.",
+        "Keywords": "steam,steamcmd,installation,fichiers,manuel,achat",
+        "FieldName": "SourceJeu",
+        "InputType": "enum",
+        "ParamFieldName": "SourceJeu",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "steamcmd",
+        "EnumValues": {
+            "steamcmd": "SteamCMD avec un compte Steam qui possède le jeu (recommandé)",
+            "manuel": "Fichiers copiés à la main dans le dossier jeu/"
+        }
+    },
+    {
+        "DisplayName": "Nom de la partie",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Le nom que voient les joueurs, et le nom du dossier de la partie (donnees/savedgames/<nom>). 1 à 40 caractères : lettres sans accent, chiffres, _ ou -, sans espace (le serveur refuse de démarrer sinon et le dit dans la console). Changer de nom = commencer une autre partie : l'ancienne reste dans son dossier. Le jeu n'a pas de message d'accueil : le nom est le seul texte affiché.",
+        "Keywords": "nom,partie,game,name",
+        "FieldName": "NomPartie",
+        "InputType": "text",
+        "ParamFieldName": "NomPartie",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "TeamKit_FR",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Ère",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Décide des nations jouables. Lu seulement à la création de la partie : une partie déjà commencée garde son ère. Option --era du jeu.",
+        "Keywords": "ere,age,era,epoque",
+        "FieldName": "Ere",
+        "InputType": "enum",
+        "ParamFieldName": "Ere",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "2",
+        "EnumValues": {
+            "1": "Premier âge (Early Age)",
+            "2": "Âge moyen (Middle Age)",
+            "3": "Dernier âge (Late Age)"
+        }
+    },
+    {
+        "DisplayName": "Carte",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Carte aléatoire créée par le jeu, avec un nombre de provinces par joueur (option --randmap), ou une carte déposée dans donnees/maps/ (option --mapfile, nom du fichier dans le réglage suivant). Lu seulement à la création de la partie.",
+        "Keywords": "carte,map,randmap,mapfile,provinces",
+        "FieldName": "Carte",
+        "InputType": "enum",
+        "ParamFieldName": "Carte",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "15",
+        "EnumValues": {
+            "10": "Aléatoire, 10 provinces par joueur (petite)",
+            "15": "Aléatoire, 15 provinces par joueur (moyenne)",
+            "20": "Aléatoire, 20 provinces par joueur (grande)",
+            "fichier": "Carte déposée dans donnees/maps/"
+        }
+    },
+    {
+        "DisplayName": "Fichier de la carte",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Partie:flag:2",
+        "Description": "Seulement si « Carte » = carte déposée. Le nom du fichier .map, par exemple ma_carte.map, sans chemin. Dépose le .map et ses images dans donnees/maps/ avec le gestionnaire de fichiers d'AMP. Espaces, virgules et accents passent ; pas de guillemet droit \".",
+        "Keywords": "carte,map,fichier,mapfile",
+        "FieldName": "FichierCarte",
+        "InputType": "text",
+        "ParamFieldName": "FichierCarte",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Délai maximum d'un tour",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Tours:schedule:3",
+        "Description": "Les tours sont simultanés : chacun joue quand il veut, et le serveur calcule le tour suivant dès que tout le monde a envoyé ses ordres, ou au plus tard au bout de ce délai (les absents gardent alors leur position sans nouveaux ordres). Pour une partie communautaire sur plusieurs semaines, 24 h ou 48 h. Option --minutes du jeu.",
+        "Keywords": "tour,delai,timer,minutes,hours,hote,host",
+        "FieldName": "DelaiTour",
+        "InputType": "enum",
+        "ParamFieldName": "DelaiTour",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "1440",
+        "EnumValues": {
+            "0": "Pas de limite (on attend tout le monde)",
+            "60": "1 heure",
+            "360": "6 heures",
+            "720": "12 heures",
+            "1440": "24 heures (un tour par jour)",
+            "2880": "48 heures",
+            "4320": "72 heures"
+        }
+    },
+    {
+        "DisplayName": "Les joueurs peuvent lancer la partie",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Démarrage:play_arrow:4",
+        "Description": "Coché (choix par défaut du jeu) : pendant le choix des nations, un joueur connecté peut démarrer la partie. Décoché : la partie démarre seulement avec les deux réglages ci-dessous, ou à la main (voir le README). Option --noclientstart du jeu quand c'est décoché.",
+        "Keywords": "lancer,demarrer,start,noclientstart",
+        "FieldName": "ClientsLancent",
+        "InputType": "checkbox",
+        "ParamFieldName": "ClientsLancent",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "oui",
+        "EnumValues": {
+            "False": "non",
+            "True": "oui"
+        }
+    },
+    {
+        "DisplayName": "Démarrer dès que ce nombre de joueurs a choisi sa nation",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Démarrage:play_arrow:4",
+        "Description": "La partie est créée automatiquement quand ce nombre de joueurs a rejoint (nation choisie, dieu envoyé). 0 = pas de démarrage automatique sur ce critère. Option --uploadmaxp du jeu.",
+        "Keywords": "joueurs,nombre,players,uploadmaxp,demarrage",
+        "FieldName": "JoueursAttendus",
+        "InputType": "number",
+        "MinValue": "0",
+        "MaxValue": "100",
+        "ParamFieldName": "JoueursAttendus",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "Suffix": "joueurs",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Démarrer au plus tard après",
+        "Category": "Dominions 6:public",
+        "Subcategory": "Démarrage:play_arrow:4",
+        "Description": "La partie est créée automatiquement au bout de ce délai, avec les joueurs inscrits à ce moment. 0 = pas de limite. Option --uploadtime du jeu (convertie en minutes).",
+        "Keywords": "delai,demarrage,uploadtime,heures",
+        "FieldName": "DelaiDemarrage",
+        "InputType": "number",
+        "MinValue": "0",
+        "MaxValue": "720",
+        "ParamFieldName": "DelaiDemarrage",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "0",
+        "Suffix": "heures",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Nations jouées par l'IA",
+        "Category": "Dominions 6:public",
+        "Subcategory": "IA et administration:smart_toy:5",
+        "Description": "Numéros des nations confiées à l'ordinateur, séparés par des espaces ou des virgules, par exemple 50, 60 71. Chaque ère a ses numéros (liste dans le README) ; une nation d'une autre ère est refusée par le jeu. Vide = pas d'IA (les nations non prises restent vides). Lu seulement à la création de la partie.",
+        "Keywords": "ia,ai,ordinateur,nations,bots",
+        "FieldName": "NationsIA",
+        "InputType": "text",
+        "ParamFieldName": "NationsIA",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Niveau des IA",
+        "Category": "Dominions 6:public",
+        "Subcategory": "IA et administration:smart_toy:5",
+        "Description": "Appliqué à toutes les nations de la liste ci-dessus. Options --easyai, --normai, --diffai, --mightyai, --masterai, --impai du jeu.",
+        "Keywords": "ia,ai,niveau,difficulte",
+        "FieldName": "NiveauIA",
+        "InputType": "enum",
+        "ParamFieldName": "NiveauIA",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "norm",
+        "EnumValues": {
+            "easy": "Facile",
+            "norm": "Normal",
+            "diff": "Difficile",
+            "mighty": "Puissant",
+            "master": "Maître",
+            "imp": "Impossible"
+        }
+    },
+    {
+        "DisplayName": "Mot de passe maître",
+        "Category": "Dominions 6:public",
+        "Subcategory": "IA et administration:smart_toy:5",
+        "Description": "Permet à l'organisateur d'ouvrir la position de n'importe quel joueur (par exemple pour confier à l'IA un joueur parti sans prévenir). Il donne un accès complet à toutes les nations : ne le donne à personne. Lettres sans accent, chiffres, _ ou - seulement. Vide = pas de mot de passe maître. Lu seulement à la création de la partie. Option --masterpass du jeu.",
+        "Keywords": "mot de passe,maitre,master,masterpass,admin",
+        "FieldName": "MotDePasseMaitre",
+        "InputType": "password",
+        "ParamFieldName": "MotDePasseMaitre",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    },
+    {
+        "DisplayName": "Options du jeu en plus",
+        "Category": "Dominions 6:public",
+        "Subcategory": "IA et administration:smart_toy:5",
+        "Description": "Pour les connaisseurs : options de la page « Launch Options » du manuel de Dominions 6, séparées par des espaces, par exemple --research 3 --renaming --thrones 5 2 1. Une valeur ne peut pas contenir d'espace. Vide par défaut.",
+        "Keywords": "options,arguments,avance,manuel",
+        "FieldName": "OptionsEnPlus",
+        "InputType": "text",
+        "ParamFieldName": "OptionsEnPlus",
+        "IncludeInCommandLine": false,
+        "DefaultValue": "",
+        "EnumValues": {}
+    }
+]

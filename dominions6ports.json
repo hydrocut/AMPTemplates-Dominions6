@@ -1,0 +1,9 @@
+[
+    {
+        "Protocol": "TCP",
+        "Port": 6090,
+        "Ref": "GamePort",
+        "Name": "Port du jeu",
+        "Description": "Seul port a ouvrir, en TCP. Les joueurs le tapent dans Dominions 6 : Network > Connect to a Game Server, apres l'adresse IP. Dominions n'a pas de port par defaut : celui-ci est un choix de TeamKit."
+    }
+]

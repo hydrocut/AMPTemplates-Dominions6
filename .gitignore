@@ -1,0 +1,12 @@
+# Ce depot ne contient que le template. Dominions 6 est payant : ses fichiers,
+# la cle CD (dom6key) et les parties restent sur le serveur, jamais ici.
+jeu/
+donnees/
+dom6key
+*.2h
+*.trn
+ftherlnd
+__pycache__/
+
+# Notes internes de TeamKit (essais, etapes), pas dans le depot public
+FAISABILITE.md
